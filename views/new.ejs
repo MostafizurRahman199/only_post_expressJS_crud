@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Create New Post</title>
+    <link rel="stylesheet" href="/style.css" />
+    <link
+      href="https://cdn.jsdelivr.net/npm/daisyui@4.12.10/dist/full.min.css"
+      rel="stylesheet"
+      type="text/css"
+    />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat+Alternates:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+<script src="https://cdn.tailwindcss.com"></script>
+
+<style>
+    .font_1{
+        font-family: "Montserrat Alternates", sans-serif;
+    }
+</style>
+  </head>
+  <body>
+    <form method="post" action="/posts" class="flex justify-center items-center w-full h-96 ">
+     
+            <div class="w-2/6 h-auto flex-col space-y-4 ">
+            
+                            <div class="">
+                                <label class="input input-bordered flex  items-center gap-2 ">
+                                    <svg
+                                    xmlns="http://www.w3.org/2000/svg"
+                                    viewBox="0 0 16 16"
+                                    fill="currentColor"
+                                    class="h-4 w-4 opacity-70"
+                                    >
+                                    <path
+                                        d="M8 8a3 3 0 1 0 0-6 3 3 0 0 0 0 6ZM12.735 14c.618 0 1.093-.561.872-1.139a6.002 6.002 0 0 0-11.215 0c-.22.578.254 1.139.872 1.139h9.47Z"
+                                    />
+                                    </svg>
+                                    <input name="username"  type="text" class="grow" placeholder="Username" />
+                                    
+                                </label>
+                            </div>
+                                
+                            <div>
+                                    <textarea name="content"
+                                    placeholder="Bio"
+                                    class="textarea textarea-bordered textarea-lg w-full "
+                                ></textarea>
+                                </div>
+                            
+                            <div>
+                                <button type="submit" class="btn btn-success text-white">Post</button>
+                            </div>
+
+
+            </div>
+
+    </form>
+  </body>
+</html>

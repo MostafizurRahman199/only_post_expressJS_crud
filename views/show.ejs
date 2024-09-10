@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Show In details</title>
+    <link href="https://cdn.jsdelivr.net/npm/daisyui@4.12.10/dist/full.min.css" rel="stylesheet" type="text/css" />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat+Alternates:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Nerko+One&display=swap" rel="stylesheet">
+    
+    <style>
+        .font_1{
+            font-family: "Montserrat Alternates", sans-serif;
+        }
+
+        .font_2{
+            font-family: "Nerko One", cursive;
+        }
+    </style>
+</head>
+<body>
+    <div class="flex flex-col w-3/4 justify-center mx-auto px-24 py-12 gap-4 ">
+      
+        <% function getRandomColor() { 
+            return '#' + Math.floor(Math.random() * 16777215).toString(16).padStart(6, '0');
+          } %>
+          
+   
+            <% let randomColor = getRandomColor(); %>
+            <div class="card lg:card-side bg-base-100 shadow-xl border-2 border-gray-700  rounded-3xl hover:border-slate-600 hover:transition-all hover:duration-1000 hover:bg-slate-900" style="border-color:<%= randomColor %>;">
+              <div class="card-body">
+                  <h2 class="card-title font_2 text-4xl drop-shadow-lg" style="color:<%= randomColor %>;">
+                  @<%= post.username %>
+                </h2>
+                <p class="font_1 text-2xl text-white">
+                  <%= post.content %> 
+                </p>
+                <div class="card-actions justify-end">
+                    <a href="http://localhost:8080/posts/"><button type=""  class="btn btn-success text-white border-none font_1" style="background-color:<%= randomColor %>;">Back Home</button></a>
+                </div>
+              </div>
+            </div>
+         
+        </div>
+</body>
+</html>

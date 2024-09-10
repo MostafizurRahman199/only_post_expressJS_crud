@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="/style.css">
+    <link href="https://cdn.jsdelivr.net/npm/daisyui@4.12.10/dist/full.min.css" rel="stylesheet" type="text/css" />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat+Alternates:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Nerko+One&display=swap" rel="stylesheet">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Rock+Salt&display=swap" rel="stylesheet">
+    
+    <style>
+        .font_1{
+            font-family: "Montserrat Alternates", sans-serif;
+        }
+
+        .font_2{
+            font-family: "Nerko One", cursive;
+        }
+
+        .font_3 {
+  font-family: "Rock Salt", cursive;
+  font-weight: 400;
+  font-style: normal;
+}
+    </style>
+</head>
+<body>
+
+
+  <div class="navbar bg-base-100 w-full justify-around items-center mt-8">
+    
+    
+    <a href="http://localhost:8080/posts">
+    <div class="flex justify-center items-center gap-1">
+      <p class="text-center text-4xl font-bold font_3">
+        Only Posts</p>
+     <img class="w-12 " src="/valentines-day_14009288.png" alt="">
+    </div>
+  </a>
+
+    <div class="flex justify-center  items-center gap-4">
+     
+      <div class="">
+        <a href="http://localhost:8080/posts/new"><button type=""  class="btn btn-success bg-transparent border-none hover:bg-transparent text-white">
+          
+          <img class="w-8" src="/letter_14862503.png" alt="">
+            </button></a>
+            <p class="font_1">Create Post</p>
+      </div>
+
+
+    
+     
+      <div class="flex justify-end items-end ">
+        <form action="/posts/search" method="GET" class="mb-5  mt-6" >
+          <input 
+              type="text" 
+              name="query" 
+              placeholder="Search posts..." 
+              class="input input-bordered w-48"
+          >
+          <button type="submit" class="btn btn-primary bg-pink-500 border-none text-white font_1">Search</button>
+        
+        </form>   
+      </div>
+     
+      
+    </div>
+     
+  </div>
+
+
+
+  
+    <div class="flex flex-col w-3/4 justify-center mx-auto px-24 py-12 gap-4 ">
+  
+
+      <!-- Add this above the posts list -->
+
+
+
+
+      
+      <% function getRandomColor() { 
+          return '#' + Math.floor(Math.random() * 16777215).toString(16).padStart(6, '0');
+        } %>
+        
+        <% for (let post of posts) { %>
+          <% let randomColor = getRandomColor(); %>
+          <div class="card lg:card-side bg-base-100 shadow-xl border-2 border-gray-700  rounded-3xl hover:border-slate-600 hover:transition-all hover:duration-1000 hover:bg-slate-900" style="border-color:<%= randomColor %>;">
+            <div class="card-body">
+                <h2 class="card-title font_2 text-4xl drop-shadow-lg" style="color:<%= randomColor %>;">
+                @<%= post.username %>
+              </h2>
+              <p class="font_1 text-2xl text-white">
+                <%= post.content %> 
+              </p>
+              <div class="card-actions justify-end items-center" >
+
+                <div>
+                  <form action="/posts/<%= post.id %>?_method=DELETE" method="POST">
+                    <button type="submit" class="btn bg-transparent border-none hover:bg-transparent">
+                        <img class="w-8" src="/delete_8690803.png" alt="Delete">
+                    </button>
+                 </form>
+                 <p class="font_1 text-center" style="color:<%= randomColor %>;">Delete</p>
+                </div>
+              
+                 
+                
+
+              <div class="flex-col items-center justify-center">
+                <button type="submit" class="btn bg-transparent border-none hover:bg-transparent">
+                  <a href="http://localhost:8080/posts/<%=post.id%>/edit">
+                    <img class="w-8" src="/edit_3714914.png" alt="">
+                  </a>
+               
+                </button>
+                <p class="font_1 text-center " style="color:<%= randomColor %>;">Edit</p>
+              </div>
+              
+              <div>
+                    
+                <a class="" href="http://localhost:8080/posts/<%=post.id%>"><button type=""  class="btn btn-success text-white border-none font_1 bg-transparent  hover:bg-transparent" >
+                  <img class="w-8  rounded-full" style="border-color: <%= randomColor %>;" src="/investigation_9773495.png" alt="">
+                </button></a>
+                <p class="font_1" style="color:<%= randomColor %>;">Sec Details</p>
+              </div>
+              </div>
+            </div>
+          </div>
+        <% } %>
+      </div>
+      
+
+   
+</body>
+</html>
